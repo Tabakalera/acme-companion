@@ -317,7 +317,7 @@ function update_cert {
     if [[ ! -f "$account_file" ]]; then
         if [[ -n "${eab_kid}" && -n "${eab_hmac_key}" ]]; then
             # Register the ACME account with the per container EAB credentials.
-            params_register_arr+=(--eab-kid "$eab_kid" --eab-hmac-key "$eab_hmac_key")
+            params_register_arr+=(--eab-kid "$eab_kid" --eab-hmac-key "$eab_hmac_key" --email "$accountemail")
         elif [[ -n "${ACME_EAB_KID// }" && -n "${ACME_EAB_HMAC_KEY// }" ]]; then
             # We don't have per-container EAB kid and hmac key or Zero SSL API key.
             # Register the ACME account with the default EAB credentials.
